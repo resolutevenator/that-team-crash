@@ -16,13 +16,13 @@ body {
 	transform: translate(-50%);
 	text-align: center;
   width: 80%;
-  height: 50px;
+  height: 20px;
   padding: 10px;
 }
 
 .search input {
   width: 90%;
-  height: 10%;
+  height: 5%;
   font-size: 25px;
 	box-sizing: content-box;
 	padding: 3%;
@@ -31,17 +31,16 @@ body {
 
 .search button {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 7%;
+  /* height: 60px; */
   right: 50px;
-  top: 25%;
+  top: 65%;
   background-color: white;
   border: white;
 }
 
 #searchIcon {
-	width: 30px;
-	height: 30px;
+	width: 50%;
 }
 
 #map {
