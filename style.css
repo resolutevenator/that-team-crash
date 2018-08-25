@@ -32,6 +32,8 @@ body {
   height: 40px;
   right: 30px;
   top: 20%;
+  background-color: white;
+  border: white;
 }
 
 #searchIcon {
