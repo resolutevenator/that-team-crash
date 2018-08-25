@@ -32,7 +32,6 @@ body {
 .search button {
   position: absolute;
   width: 7%;
-  /* height: 60px; */
   right: 50px;
   top: 65%;
   background-color: white;
