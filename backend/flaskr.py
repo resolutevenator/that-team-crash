@@ -48,10 +48,11 @@ class Heatmap(Resource):
                 num = 12
 
             point['weight'] = num
-            for i in range(num):
-                movedPoint = dict(point)
-                movedPoint['latitude'] = float(latitude) + random.uniform(-0.0001, 0.0001)
-                movedPoint['longitude'] = float(longitude) + random.uniform(-0.0001, 0.0001)
+            # for i in range(num):
+                # movedPoint = dict(point)
+                # movedPoint['latitude'] = float(latitude) + random.uniform(-0.0001, 0.0001)
+                # movedPoint['longitude'] = float(longitude) + random.uniform(-0.0001, 0.0001)
+            if (num > 0):
                 POINTS.append(point)
 
             if (index > MAX_DATA_POINTS):
