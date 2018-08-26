@@ -73,6 +73,15 @@ function initMap() {
 	});
 }
 
+document.querySelector('form').addEventListener('submit', onSubmit)
+
+function onSubmit(event) {
+  event.preventDefault();
+  var form = document.forms["searchBox"]["search"].value;
+  //send data to the map
+  console.log(form);
+}
+
 //adds lat and long of crashes to array
 function getPoints() {
 	var crashPoints = [];
