@@ -57,7 +57,8 @@ function initMap() {
 	var myOptions = {
 		zoom: 6,
 		center: { lat: 37.775, lng: -122.434 },
-		disableDefaultUI: true
+		disableDefaultUI: true,
+		minZoom: 5
 	};
 
 	map = new google.maps.Map(document.querySelector('#map'), myOptions);
