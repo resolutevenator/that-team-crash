@@ -2,6 +2,4 @@
 
 ## Running the webpage
 
-Install npm
-
-`npx http-server`
+Open index.html inside firefox
