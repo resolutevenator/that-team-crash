@@ -51,6 +51,15 @@ function initMap() {
 	});
 }
 
+document.querySelector('form').addEventListener('submit', onSubmit)
+
+function onSubmit(event) {
+  event.preventDefault();
+  var form = document.forms["searchBox"]["search"].value;
+  //send data to the map
+  console.log(form);
+}
+
 function getPoints() {
 	return [
 		new google.maps.LatLng(37.782551, -122.445368),
