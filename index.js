@@ -1,4 +1,9 @@
-var map, heatmap, crashData;
+// global var
+var map, heatmap, crashData, geocoder;
+// default center (akl centeral)
+var center = [-36.8485, 174.7633];
+// listening to user's input
+document.querySelector('form').addEventListener('submit', recenter);
 
 // Get google map's key from config.json
 $.ajax({
@@ -24,6 +29,7 @@ function getMap(key) {
 		dataType: 'jsonp',
 		type: 'GET',
 		success: function(data) {
+			geocoder = new google.maps.Geocoder();
 			getData();
 		},
 		error: function(error) {
@@ -34,7 +40,7 @@ function getMap(key) {
 }
 
 //gets the data from the json file
-function getData(){
+function getData() {
 	$.ajax({
 		url: 'data.json',
 		dataType: 'json',
@@ -52,13 +58,11 @@ function getData(){
 
 // init map (center wellington)
 function initMap() {
-	var wellington = new google.maps.LatLng(-41.28646, 174.776236);
-
 	var myOptions = {
-		zoom: 6,
-		center: { lat: 37.775, lng: -122.434 },
+		zoom: 12,
+		center: { lat: center[0], lng: center[1] },
 		disableDefaultUI: true,
-		minZoom: 5
+		minZoom: 10
 	};
 
 	map = new google.maps.Map(document.querySelector('#map'), myOptions);
@@ -73,7 +77,27 @@ function initMap() {
 function getPoints() {
 	var crashPoints = [];
 	for (var i = 0; i < crashData.length; i++) {
-		crashPoints.push(new google.maps.LatLng(crashData[i].lat, crashData[i].long));
+		crashPoints.push(
+			new google.maps.LatLng(crashData[i].lat, crashData[i].long)
+		);
 	}
 	return crashPoints;
+}
+
+// reset position to user's input
+function recenter(e) {
+	e.preventDefault();
+	var location = document.querySelector('#search').value;
+
+	geocoder.geocode({ address: location + 'Auckland, New Zealand' }, function(
+		results,
+		status
+	) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			map.setCenter(results[0].geometry.location);
+			map.setZoom(15);
+		} else {
+			alert('Geocode was not successful for the following reason: ' + status);
+		}
+	});
 }
