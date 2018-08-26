@@ -70,7 +70,7 @@ function initMap() {
 	heatmap = new google.maps.visualization.HeatmapLayer({
 		data: getPoints(),
 		map: map,
-		radius: 25
+		radius: 20
 	});
 }
 
