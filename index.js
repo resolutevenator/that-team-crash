@@ -59,8 +59,8 @@ function getData() {
 // init map (center wellington)
 function initMap() {
 	var myOptions = {
-		zoom: 6,
-		center: wellington,
+		zoom: 12,
+		center:{ lat: center[0], lng: center[1] },
 		disableDefaultUI: true,
 		minZoom: 10
 	};

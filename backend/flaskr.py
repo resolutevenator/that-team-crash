@@ -34,8 +34,22 @@ class Heatmap(Resource):
             point = {"latitude" : latitude, "longitude" : longitude}
 
             # randomly add the same data point multiple times
-            num = int(abs(random.gauss(0, 10)))
+            choice = random.randint(0,100)
+
+            if (choice < 65):
+                num = 0;
+            elif choice < 70:
+                num = 1
+            elif choice < 80:
+                num = 3
+            elif choice < 90:
+                num = 6
+            else:
+                num = 12
+
             for i in range(num):
+                movedPoint = dict()
+
                 POINTS.append(point)
 
             if (index > MAX_DATA_POINTS):
