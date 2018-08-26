@@ -59,8 +59,8 @@ function getData() {
 // init map (center wellington)
 function initMap() {
 	var myOptions = {
-		zoom: 12,
-		center: { lat: center[0], lng: center[1] },
+		zoom: 6,
+		center: wellington,
 		disableDefaultUI: true,
 		minZoom: 10
 	};
@@ -77,9 +77,7 @@ function initMap() {
 function getPoints() {
 	var crashPoints = [];
 	for (var i = 0; i < crashData.length; i++) {
-		crashPoints.push(
-			new google.maps.LatLng(crashData[i].lat, crashData[i].long)
-		);
+		crashPoints.push(new google.maps.LatLng(crashData[i].latitude, crashData[i].longitude));
 	}
 	return crashPoints;
 }
