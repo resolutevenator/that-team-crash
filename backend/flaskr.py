@@ -31,26 +31,27 @@ class Heatmap(Resource):
 
             latitude = row[1]
             longitude = row[2]
-            point = {"latitude" : latitude, "longitude" : longitude}
+            point = {"latitude" : latitude, "longitude" : longitude, "weight":0}
 
             # randomly add the same data point multiple times
             choice = random.randint(0,100)
 
             if (choice < 65):
-                num = 0;
+                num = 0
             elif choice < 70:
-                num = 1
+                num = 2
             elif choice < 80:
-                num = 3
+                num = 5
             elif choice < 90:
-                num = 6
+                num = 9
             else:
                 num = 12
 
+            point['weight'] = num
             for i in range(num):
                 movedPoint = dict(point)
-                movedPoint['latitude'] += random.uniform(-0.00001, 0.00001)
-                movedPoint['longitude'] += random.uniform(-0.00001, 0.00001)
+                movedPoint['latitude'] = float(latitude) + random.uniform(-0.0001, 0.0001)
+                movedPoint['longitude'] = float(longitude) + random.uniform(-0.0001, 0.0001)
                 POINTS.append(point)
 
             if (index > MAX_DATA_POINTS):

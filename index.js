@@ -69,7 +69,8 @@ function initMap() {
 
 	heatmap = new google.maps.visualization.HeatmapLayer({
 		data: getPoints(),
-		map: map
+		map: map,
+		radius: 25
 	});
 }
 
@@ -77,7 +78,8 @@ function initMap() {
 function getPoints() {
 	var crashPoints = [];
 	for (var i = 0; i < crashData.length; i++) {
-		crashPoints.push(new google.maps.LatLng(crashData[i].latitude, crashData[i].longitude));
+		crashPoints.push({location: new google.maps.LatLng(crashData[i].latitude, crashData[i].longitude), weight: crashData[i].weight});
+
 	}
 	return crashPoints;
 }
