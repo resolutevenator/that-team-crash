@@ -3,12 +3,6 @@ body {
 	background-color: black;
 	margin: 0;
 }
-/* h2{
-	color: white;
-	padding-left: 20px;
-	 font: 25pt Helvetica;
-	padding-bottom: 0;
-} */
 
 .pageContent {
   position: relative;
@@ -36,16 +30,21 @@ body {
   font-size: 25px;
 	box-sizing: content-box;
 	padding: 3%;
-	border: 1px solid #e6e6e6;
+  border: 1px solid #e6e6e6;
+  background-image: url(search-icon.png);
+  background-position: 95% 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
 }
 
 .search button {
   position: absolute;
-  width: 7%;
-  right: 50px;
-  top: 65%;
-  background-color: white;
-  border: white;
+  width: 70px;
+  height: 70px;
+  right: 60px;
+  /* top: 65%; */
+  background-color: transparent;
+  border: 0px white;
 }
 
 #searchIcon {

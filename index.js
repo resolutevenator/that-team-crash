@@ -86,7 +86,7 @@ function getPoints() {
 function recenter(e) {
 	e.preventDefault();
 	var location = document.querySelector('#search').value;
-
+	console.log(location);
 	geocoder.geocode({ address: location + 'Auckland, New Zealand' }, function(
 		results,
 		status
